@@ -71,3 +71,18 @@ const fullPricedBook = discountedBooks.find(book => {
 console.log(fullPricedBook);
 
 // SNACK 3
+
+const authors = books.map(author => author.author)
+
+const areAuthorsAdults = authors.every(major => major.age > 18)
+console.log(areAuthorsAdults);
+
+authors.sort((a, b) => {
+    return b.age - a.age
+})
+console.log(authors);
+
+// SNACK 4
+
+
+
