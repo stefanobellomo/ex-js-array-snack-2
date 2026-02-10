@@ -84,5 +84,16 @@ console.log(authors);
 
 // SNACK 4
 
+const ages = books.map(ageAut => ageAut.author.age)
+console.log(ages);
+
+const somma = ages.reduce((acc, numero) => {
+    return acc + numero
+}, 0)
+console.log(somma);
+
+const etaMedia = somma / ages.length
+console.log(etaMedia);
+
 
 
