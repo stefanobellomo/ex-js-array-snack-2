@@ -54,4 +54,20 @@ console.log(longBooksTitle);
 
 // SNACK 2
 
+const availableBooks = books.filter(book => book.available === true)
+console.log(availableBooks);
 
+const discountedBooks = availableBooks.map(book => {
+    let sconto = parseFloat(book.price) * 0.2
+    const prezzoScontato = parseFloat(book.price) - sconto
+    return { ...book, price: `${prezzoScontato.toFixed(2)}€` }
+})
+console.log(discountedBooks);
+
+const fullPricedBook = discountedBooks.find(book => {
+    const newPrice = parseFloat(book.price)
+    return Number.isInteger(newPrice)
+})
+console.log(fullPricedBook);
+
+// SNACK 3
