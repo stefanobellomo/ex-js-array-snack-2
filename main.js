@@ -95,5 +95,23 @@ console.log(somma);
 const etaMedia = somma / ages.length
 console.log(etaMedia);
 
+// SNACK 5
 
+async function fetchJson(url) {
+    const response = await fetch(url)
+    const obj = await response.json()
+    return obj
+}
+
+async function getBooks(id) {
+    const promises = id.map((id) => {
+        return fetchJson(`http://localhost:3333/books/${id}`)
+    })
+    return Promise.all(promises)
+}
+
+getBooks([2, 7, 13, 21, 19])
+    .then(book => console.log(book)
+        .catch(err => console.error(err)
+        ))
 
