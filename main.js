@@ -110,8 +110,26 @@ async function getBooks(id) {
     return Promise.all(promises)
 }
 
-getBooks([2, 7, 13, 21, 19])
-    .then(book => console.log(book)
-        .catch(err => console.error(err)
-        ))
+// getBooks([2, 7, 13, 21, 19])
+//     .then(book => console.log(book)
+//         .catch(err => console.error(err)
+//         ))
 
+// SNACK 6
+
+const areThereAvailableBooks = books.some(disp => disp.available)
+console.log(areThereAvailableBooks);
+
+const booksByPrice = [...books].sort((a, b) => a.price.replace('€', '') - b.price.replace('€', ''))
+console.log(booksByPrice);
+
+const order = booksByPrice.sort((a, b) => {
+    if (a.available === true) {
+        return a.available - b.available
+    } else if (a.available === false) {
+        return b.available - a.available
+    }
+})
+console.log(order);
+
+// SNACK 7
